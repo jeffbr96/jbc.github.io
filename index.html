@@ -1,3 +1,109 @@
 ---
 layout: home
 ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        .posts {
+            display: grid;
+            gap: 25px;
+        }
+        .post {
+            border: 1px solid #ddd;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #fafafa;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+        .post h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        .post a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.2s;
+        }
+        .post a:hover {
+            color: #2980b9;
+        }
+        .post-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .entry {
+            margin-bottom: 15px;
+        }
+        .read-more {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .read-more:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </header>
+        <div class="posts">
+          {% for post in site.posts %}
+            <article class="post">
+              <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+              <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+              <div class="entry">
+                {{ post.excerpt }}
+              </div>
+              <a href="{{ post.url }}" class="read-more">Read More</a>
+            </article>
+          {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
