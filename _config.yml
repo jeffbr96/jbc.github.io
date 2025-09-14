@@ -2,5 +2,5 @@ theme: minima
 title: JBCs Blog
 description: A writing exercise
 
-baseurl: "/_posts"
-url: "https://jeffbr96.github.io/jbc.github.io/"
+baseurl: "/blog"
+url: "https://jeffbr96.github.io/jbc.github.io/_posts"
