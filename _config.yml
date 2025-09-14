@@ -1,6 +1,5 @@
 theme: minima
 title: JBCs Blog
 description: A writing exercise
-
 baseurl: "/blog"
 url: "https://jeffbr96.github.io"
