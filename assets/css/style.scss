@@ -8,6 +8,12 @@ body {
   background-color: #f8f8f8;
   margin: 0;
   padding: 0;
+
+   /* Background Image Styles */
+  background-image: url('{{ site.baseurl }}/assets/images/tech-background.jpg');
+  background-size: cover; /* This makes the image cover the entire background */
+  background-position: center; /* This centers the image */
+  background-attachment: fixed; /* This keeps the image from scrolling with the content */
 }
 
 /* Container for Centering Content */
