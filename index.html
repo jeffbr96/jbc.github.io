@@ -1,32 +1,29 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>My Blog</h1>
-            <p>A simple blog built with just HTML and CSS.</p>
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
         </header>
 
         <section class="posts">
-            <article class="post-listing">
-                <h3><a href="posts/2025-09-15-my-second-post.html">My Second Post</a></h3>
-                <p class="post-date">September 15, 2025</p>
-                <p>A brief description of my second post...</p>
-                <a href="posts/2025-09-15-my-second-post.html" class="read-more">Read More</a>
-            </article>
-
-            <article class="post-listing">
-                <h3><a href="posts/2025-09-14-my-first-post.html">My First Post</a></h3>
-                <p class="post-date">September 14, 2025</p>
-                <p>A brief description of my first post...</p>
-                <a href="posts/2025-09-14-my-first-post.html" class="read-more">Read More</a>
-            </article>
+            {% for post in site.posts %}
+                <article class="post-listing">
+                    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+                    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                    <p>{{ post.excerpt }}</p>
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+                </article>
+            {% endfor %}
         </section>
     </div>
 </body>
