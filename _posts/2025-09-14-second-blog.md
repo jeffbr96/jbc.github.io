@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "My First Post"
-author: "Your Name"
+title: "Check Points to be Worked"
+author: "Jefferson Bourguignon Coutinho"
 date: 2025-09-14
 categories: jekyll, github
-excerpt: "This is a brief summary of the post that will appear on the homepage."
+excerpt: "A list of what has to be done."
 ---
 
 ## Whats Next
