@@ -1,6 +1,5 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +9,22 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-    </body>
-</html>s
+    <div class="container">
+        <header>
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </header>
+
+        <section class="posts">
+            {% for post in site.posts %}
+                <article class="post-listing">
+                    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+                    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                    <p>{{ post.excerpt }}</p>
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+                </article>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
