@@ -48,8 +48,9 @@ header p {
 
 /* Post Listings */
 .post-listing {
-  background-color: rgba(212, 249, 212, 0.75);
-  border: 1px solid #006600;
+  background-color: rgba(190, 220, 220, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   margin-bottom: 25px;
