@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {%- include head.html -%}
+
+  <body {% if page.background_image %}style="background-image: url('{{ site.baseurl }}{{ page.background_image }}');"{% elsif page.url == "/" %}{% else %}style="background-image: none;"{% endif %}>
+
+            <div class="wrapper">
+
+              {%- include header.html -%}
+
+            </div>
+
+          
+
+            <main class="page-content" aria-label="Content">
+
+              <div class="wrapper">
+
+                {{ content }}
+
+              </div>
+
+            </main>
+
+          
+
+            <div class="wrapper">
+
+              {%- include footer.html -%}
+
+            </div>    {%- include sub-footer.html -%}
+
+  </body>
+
+</html>

@@ -17,7 +17,7 @@
 
         <section class="posts">
             {% for post in site.posts %}
-                <article class="post-listing">
+                <article class="post-listing"> 
                     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
                     <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
                     <p>{{ post.excerpt }}</p>

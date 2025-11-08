@@ -4,6 +4,7 @@ title: "My First Post"
 author: "Your Name"
 date: 2025-09-14 10:00:00 -0400
 categories: jekyll, github
+background_image: /assets/images/post1.jpg
 excerpt: "This is a brief summary of the post that will appear on the homepage."
 ---
 

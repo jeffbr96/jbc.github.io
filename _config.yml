@@ -1,3 +1,5 @@
 theme: minima
 title: JBCs Blog
 description: A Writing Exercise
+minima:
+  hide_site_feed_link: true

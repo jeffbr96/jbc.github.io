@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Introduction"
+author: "Jefferson Bourguignon Coutinho"
+date: 2025-11-07
+categories: jekyll, github
+background_image: /assets/images/second-post-bg.jpg
+excerpt: "Hi, nice to see you are catching this excerpt. I have decided on improving my writing and polishing my knowledge through this blog as a writing exercise. You should expect topics on music, technology, and miscellaneous non-confrontational topics…"
+---
+
+## Introduction
+
+Hi, nice to see you are catching this excerpt. I have decided on improving my writing and polishing my knowledge through this blog as a writing exercise. You should expect topics on music, technology, and miscellaneous non-confrontational topics. This should be no longer than 500 words, and to tell the truth, I may just stick to 300 words for the most part. Since this is a living experiment, the formats may change, but for the most part, I want to keep this light and informative.
+
+As a first topic, I believe talking about how this blog was built should be a priority. This first blog is just a placeholder so I can research and learn how to use GitHub Pages for this. Maybe this is a good place to talk about the experience. To tell the truth, I think maintaining a blog like this is doable if you don’t have a tech background, but it is possible that you can get caught in the process and give up. My job here will be to try to create a boilerplate (sample code) so that someone can start from a built, simple framework.
+
+I have many friends who don’t have a lot of experience with GitHub repositories or any other repository, as a matter of fact, so I’ll just explain what it is here really quickly. GitHub (Microsoft) or GitLab are just repositories for information. For the most part, it is used for code, but a lot of people use it for different things such as blogs, short stories, books, DIY projects—really all kinds of things. This is a good video to watch to start on GitHub; you can also, if you are not a video person, read this documentation. I myself, if I didn’t have a tech background, would skim through the documentation and take a quick look at the video. To tell you the truth, I think the documentation is enough.
+
+Why GitHub/GitLab? A lot of people use it, and it is a platform where you can not only share your ideas but also collaborate with others or share your projects for others to collaborate. To prove that, I’ll give you here my vanilla version of this blog. I will call it the Vanilla Blog. I will show you how to fork it and start your own blog if you feel like it.
