@@ -81,6 +81,11 @@ header p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.post-meta {
+  font-size: 0.9em;
+  color: #666; /* A slightly lighter color for the meta text */
+}
+
 .site-header{
   background-color: rgba(1, 32, 91, 0.5); /* Cornflower blue with 50% opacity */
   backdrop-filter: blur(10px);
