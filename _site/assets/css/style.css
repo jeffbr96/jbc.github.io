@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   /* Background Image Styles */
-  background-image: url("/assets/images/background.jpg");
+  background-image: url("/jbc.github.io/assets/images/background.jpg");
   background-size: cover; /* This makes the image cover the entire background */
   background-position: center; /* This centers the image */
   background-attachment: fixed; /* This keeps the image from scrolling with the content */
