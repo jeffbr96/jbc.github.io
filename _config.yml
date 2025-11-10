@@ -1,5 +1,7 @@
 theme: minima
 title: JBCs Blog
+url: "https://jeffbr96.github.io" # the base hostname & protocol for your site
+baseurl: "/jbc.github.io" # the subpath of your site, e.g. /blog
 description: A Writing Exercise
 minima:
   hide_site_feed_link: true
