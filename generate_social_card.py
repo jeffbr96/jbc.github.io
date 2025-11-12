@@ -169,32 +169,43 @@ def generate_social_card(image_path: str, output_path: str, text: str):
         print(f"❌ An error occurred during image generation: {e}")
 
 def update_post_file(post_path: str, social_image_url: str):
-    """Adds the social_image field to the post's front matter."""
+    """Updates or adds the image field in the post's front matter."""
     with open(post_path, 'r+', encoding='utf-8') as f:
         content = f.read()
         
-        if f"social_image: {social_image_url}" in content:
+        new_image_line = f"image: {social_image_url}"
+
+        # Check if the correct social_image field already exists
+        if new_image_line in content:
             print("✅ Post already contains the correct social_image field.")
             return
 
-        end_fm_match = re.search(r'^---\s*$', content, re.MULTILINE)
-        if not end_fm_match:
-            print("❌ Could not find the end of the front matter.")
-            return
-        
-        insertion_point = end_fm_match.start()
-        prefix = content[:insertion_point]
-        new_field = f"social_image: {social_image_url}\n"
-        
-        if not prefix.endswith('\n'):
-            new_field = '\n' + new_field
+        # Try to replace an existing 'image:' field
+        image_pattern = re.compile(r"^image:.*$", re.MULTILINE)
+        new_content, num_replacements = image_pattern.subn(new_image_line, content, count=1)
 
-        new_content = prefix + new_field + content[insertion_point:]
-        
+        if num_replacements > 0:
+            print(f"✅ Updated social image to: {social_image_url}")
+        else:
+            # If 'image:' field doesn't exist, add it to the front matter
+            end_fm_match = re.search(r'^---\s*$', content, re.MULTILINE)
+            if not end_fm_match:
+                print("❌ Could not find the end of the front matter.")
+                return
+            
+            insertion_point = end_fm_match.start()
+            prefix = content[:insertion_point]
+            field_to_add = f"{new_image_line}\n"
+            
+            if not prefix.endswith('\n'):
+                field_to_add = '\n' + field_to_add
+
+            new_content = prefix + field_to_add + content[insertion_point:]
+            print(f"✅ Added social image: {social_image_url}")
+
         f.seek(0)
         f.write(new_content)
         f.truncate()
-        print(f"✅ Post updated with social image: {social_image_url}")
 
 def main():
     """Main function to run the script."""
