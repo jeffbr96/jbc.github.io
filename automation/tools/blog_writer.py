@@ -69,7 +69,7 @@ excerpt: "{excerpt_text}"
             original_paragraph = first_paragraph_match.group(1)
             excerpt_text = original_paragraph.strip() + "..."
             # Style the first paragraph in the body content
-            styled_paragraph = f'<em><span style="color: purple;">{original_paragraph}</span></em>'
+            styled_paragraph = f'<em><span style="color: #423E00;">{original_paragraph}</span></em>'
             # Replace the original first paragraph with the styled one in the main content
             self.content = self.content.replace(original_paragraph, styled_paragraph, 1)
         else:

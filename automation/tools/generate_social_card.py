@@ -37,7 +37,7 @@ else: # Linux, macOS, or Windows Subsystem for Linux (WSL)
 # --- General Configuration ---
 POSTS_DIR = os.path.join(PROJECT_ROOT, "_posts")
 RESIZE_DIMS = (1200, 630)
-TEXT_COLOR = (0, 0, 0) # Black
+TEXT_COLOR = (66, 62, 0) # Almost black yellow
 GLASS_COLOR = (255, 255, 255, 180) # White, ~47% transparent
 
 def find_latest_post() -> Union[str, None]:
