@@ -1,5 +1,6 @@
 from tools.blog_writer import BlogWriter
 from tools.file_uploader import PostUploader
+from tools.generate_social_card import main as generate_social_card_main
 
 def automate_blog_post():
     
@@ -10,4 +11,5 @@ def automate_blog_post():
     
 if __name__ == "__main__":
     automate_blog_post()
+    generate_social_card_main()
     
