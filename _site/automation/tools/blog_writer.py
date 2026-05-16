@@ -32,16 +32,20 @@ class BlogWriter:
 
         # 3. Use an f-string to build the complete YAML block
         # Ensure the title is clean (no \n) to prevent YAML parsing errors
+        # Replace double quotes with single quotes in title and excerpt to prevent YAML errors
+        safe_title = title.replace('"', "'")
+        safe_excerpt = excerpt_text.replace('"', "'")
+        
         header = f"""---
 layout: post
-title: "{title}"
+title: "{safe_title}"
 author: "{author_name}"
 date: {today_date}
 categories:
 {categories_yaml}
 background_image: /assets/images/post{X}.jpg
 image: /assets/images/post{X}.jpg
-excerpt: "{excerpt_text}"
+excerpt: "{safe_excerpt}"
 ---"""
         return header
         

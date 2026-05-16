@@ -32,7 +32,7 @@ if os.name == 'nt': # Native Windows
     FONT_PATH = "C:/Windows/Fonts/ELEPHNT.ttf" # Calibri Regular
 else: # Linux, macOS, or Windows Subsystem for Linux (WSL)
     PROJECT_ROOT = "/mnt/c/Users/jeffb/OneDrive/Desktop/Blog/jbc.github.io"
-    FONT_PATH = "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf" # Common path for Roboto Regular
+    FONT_PATH = "/mnt/c/Windows/Fonts/ELEPHNT.ttf" # Use Elephant font for consistency
 
 # --- General Configuration ---
 POSTS_DIR = os.path.join(PROJECT_ROOT, "_posts")
@@ -56,7 +56,7 @@ def parse_post(post_path: str) -> Union[dict, None]:
     except IOError:
         return None
 
-    match = re.search(r'---\s*(.*?)\s*---', content, re.DOTALL)
+    match = re.search(r'^---\s*\n(.*?)\n---\s*$', content, re.DOTALL | re.MULTILINE)
     if not match:
         return None
 
@@ -78,6 +78,18 @@ def get_excerpt(front_matter: dict) -> str:
         if p.strip():
             return p.strip()
     return "Read more on the blog"
+
+def draw_rounded_rectangle(draw, box, radius, fill):
+    """Draws a rounded rectangle for older Pillow versions."""
+    x0, y0, x1, y1 = box
+    # Draw the central rectangles
+    draw.rectangle([x0 + radius, y0, x1 - radius, y1], fill=fill)
+    draw.rectangle([x0, y0 + radius, x1, y1 - radius], fill=fill)
+    # Draw the four corner circles
+    draw.pieslice([x0, y0, x0 + radius * 2, y0 + radius * 2], 180, 270, fill=fill)
+    draw.pieslice([x1 - radius * 2, y0, x1, y0 + radius * 2], 270, 360, fill=fill)
+    draw.pieslice([x0, y1 - radius * 2, x0 + radius * 2, y1], 90, 180, fill=fill)
+    draw.pieslice([x1 - radius * 2, y1 - radius * 2, x1, y1], 0, 90, fill=fill)
 
 def generate_social_card(image_path: str, output_path: str, text: str):
     """Resizes an image and adds a glassy background and dynamically sized text."""
@@ -137,17 +149,12 @@ def generate_social_card(image_path: str, output_path: str, text: str):
             rect_x1 = x + text_width + padding
             rect_y1 = y + text_height + padding
             
-            try:
-                draw_overlay.rounded_rectangle(
-                    (rect_x0, rect_y0, rect_x1, rect_y1), 
-                    radius=17, # Reduced radius for less roundness
-                    fill=GLASS_COLOR
-                )
-            except AttributeError:
-                draw_overlay.rectangle(
-                    (rect_x0, rect_y0, rect_x1, rect_y1), 
-                    fill=GLASS_COLOR
-                )
+            draw_rounded_rectangle(
+                draw_overlay,
+                (rect_x0, rect_y0, rect_x1, rect_y1), 
+                radius=17, 
+                fill=GLASS_COLOR
+            )
             # --- End Glassy Background ---
 
             img = Image.alpha_composite(img, overlay)
